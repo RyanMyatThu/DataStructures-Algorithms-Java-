@@ -14,7 +14,7 @@ Binary Search is an efficient algorithm to find a target element in a **sorted a
 - Continue the above steps for new reduced portions of the array until the desired value is found.
 - If the value is found, the code will return the index of the value in the array. If not, the code will return -1.
 
->*Binary Search requires that the input array is ==**sorted**== in non-decreasing order*
+>*Binary Search requires that the input array is **==sorted==** in non-decreasing order*
 
 #### **Code preview**
 
