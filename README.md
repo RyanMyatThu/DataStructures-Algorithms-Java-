@@ -4,4 +4,4 @@
 
 **Contents**
 
-'Language available' -> 'Java' Or 'Python'
+`Language Available` -> `Java` `Python`
