@@ -36,4 +36,25 @@
 - **Average Case**: O(n²).
 
 ## Space Complexity
-- **Space Complexity**: O(1) – Insertion Sort is an in-place sorting algorithm.
+- O(1) – Insertion Sort is an in-place sorting algorithm.
+
+---
+### Step-By-Step process
+
+Let’s sort the array `[5, 3, 8, 6, 2]` using Insertion Sort:
+First, we'll start by selecting the second element of the array, which, in this case is `3`. The value of j is `0` because we'll use it as an index in shifting the **larger** elements in the sorted side to the right, in order to find the correct position for the `current` element.[^1] Then, we'll compare the value of `current` which is `3` to the value of `arr[j]` which is `5`. Since `5 > 3`, we'll shift `5` to the right. [^2] After the while-loop, we'll have the value of j as `-1` and the updated array would look like this : `[5, 5, 8, 6, 2]`. The next line of code after the loop will place the `current` at the newly found position which is `arr[j+1]`, in other words : `arr[0]`. The updated array would be like this : `[3,5,8,6,2]`. The process goes the same for sorting the remaining values in the array. 
+
+`[3, 5, 8, 6, 2]` - Compare `5` with `8`, (Current is `8`, `arr[j]` is `5`). No shift needed [^3]
+`[3, 5, 8, 6, 2]` - Compare `8` with `6`, (Current is `6`, `arr[j` is `8`). We'll be shifting `8` to the right to place `6` at its correct position. [^4]
+`[3, 5, 6, 8, 2]` - Compare `8` with `2`, (Current is `2`, `arr[j` is `8`). We'll be shifting all the elements greater than `2` to the right. Namely, `3, 5, 6 and 8`. [^5]
+Lastly `arr[j+1] = current` will finish the process off with the sorted array. `[2, 3, 5, 6, 8]`
+
+
+
+[^1]: Due to `int current = arr[i];`. Since we are starting from the second element of the array. The for-loop will be `for (int i = 1; i < arr.length; i++){...}`. The value of `current` will change as the loop traverses.
+[^2]: The loop `while(j >= 0 && arr[j] > current){...}` handles this case, since `j == 0` and `5 > 3`. The code in this loop will be executed. `arr[j+1] = arr[j];` First, 5 is shifted to the right. `[5, 5, 8, 6, 2]` will be the updated array. Next, we'll decrease the value of j, so we could get the correct position for the `current`. 
+[^3]: Since `current` is greater than `arr[j]`, it will not satisfy this condition : `arr[j] > current`. Therefore, the loop will not get executed.
+[^4]:Since `current` is less than `arr[j]`, it satisfies the condtion to execute the loop.
+[^5]:Since `current` is less than `arr[j]`, it satisfies the condtion to execute the loop. First `8` will be shifted to the right. Then `6, 5 and 3` will be shifted and the array will be left with `[3, 3, 5, 6, 8]` and the value of j as `-1`.
+
+
