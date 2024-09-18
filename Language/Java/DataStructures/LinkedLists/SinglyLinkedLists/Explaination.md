@@ -221,6 +221,8 @@ list.display(); // Expected Output: 1 --> 2 --> 3 --> null
 ---
 ### Delete Method
 
+4. `deleteNode(int index)`
+
 The method called `deleteNode(int index)` will traverse the linked list until it reaches the `desired index`. [^4] Once the index is reached, we shall delete the node pointed by `current`. 
 
 **Code Preview**
@@ -260,6 +262,9 @@ list.display(); // Expected Output: 1 --> 2 --> null
 ---
 
 ### The Search Method
+
+5. `search(int target)`
+
 This method deals with the searching for the `target` value inside the linked list. It simply traverses the linked list looking for the `target`, if it is found, the method returns the index of the desired node. Otherwise, it returns `-1`.
 
 **Code Preview**
@@ -290,6 +295,9 @@ list.search(20); // returns 1
 ---
 
 ### Display Method
+
+6. `display()`
+
 Displays all the elements of the linked list in a readable format.
 
 **Code Preview**
@@ -315,6 +323,8 @@ list.display(); // Expected Output: 20 --> 25 --> 10 --> 40 --> null
 ---
 
 ### IsEmpty Method
+7. `isEmpty()`
+
 Check if the linked list is empty or not.
 
 **Code Preview**
