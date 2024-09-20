@@ -51,7 +51,9 @@ private static int partition(int[] arr, int left, int right){
 - Worst Case : O(n^2^) `If the array is already sorted`
 
 **Space Complexity**
+
 O(log n) – Due to recursive calls in the algorithm. However, if recursion isn't optimized (tail recursion), it can degrade to O(n).
+
 ---
 
 ##### Step-By-Step Process
