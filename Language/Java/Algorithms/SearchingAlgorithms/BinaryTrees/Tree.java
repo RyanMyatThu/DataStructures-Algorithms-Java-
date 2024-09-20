@@ -1,4 +1,4 @@
-package Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Depth_First_Search_BinaryTree;
+package Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees;
 
 public class Tree {
    public int data;

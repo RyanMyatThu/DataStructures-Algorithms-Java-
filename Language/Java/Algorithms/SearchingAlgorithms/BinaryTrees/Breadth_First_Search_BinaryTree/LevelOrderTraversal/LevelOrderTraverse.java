@@ -1,15 +1,26 @@
-package Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Depth_First_Search_BinaryTree.InOrderTraversal;
+package Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Breadth_First_Search_BinaryTree.LevelOrderTraversal;
 
 import Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Tree;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class InOrderTraverse {
+public class LevelOrderTraverse {
     public static void traverse(Tree root){
-        if(root == null) return;
-        traverse(root.left);
-        System.out.println(root.data);
-        traverse(root.right);
+        Queue<Tree> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            Tree current = queue.remove();
+            System.out.println(current.data);
+            if(current.left != null){
+            queue.add(current.left);
+            }
+            if(current.right != null){
+            queue.add(current.right);
+            }
+        }
     }
-    public static void main(String[] akrgs) {
+    
+    public static void main(String[] args) {
         Tree first = new Tree(1);
         Tree second = new Tree(2);
         Tree third = new Tree(3);
@@ -31,5 +42,5 @@ public class InOrderTraverse {
 
         traverse(first);
     }
-
+    
 }

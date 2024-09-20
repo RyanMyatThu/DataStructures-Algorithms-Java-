@@ -1,6 +1,6 @@
 package Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Depth_First_Search_BinaryTree.PostOrderTraversal;
 
-import  Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Depth_First_Search_BinaryTree.Tree;
+import Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Tree;
 
 public class PostOrderTraverse {
     public static void traverse(Tree root){

@@ -1,6 +1,6 @@
 package Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Depth_First_Search_BinaryTree.PreOrderTraversal;
 
-import Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Depth_First_Search_BinaryTree.Tree;
+import Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Tree;
 
 public class PreOrderTraverse {
     public static void traverse(Tree root){
