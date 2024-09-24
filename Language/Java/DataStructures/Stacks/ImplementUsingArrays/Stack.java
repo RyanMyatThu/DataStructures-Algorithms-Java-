@@ -17,7 +17,20 @@ public class Stack {
         return res;
         
     }
-    public void peek(){
-        System.out.println(arr[top]);
+    public int peek(){
+        return arr[top];
+    }
+    public boolean isEmpty(){
+        return top == -1;
+    }
+    public void display(){
+
+        for (int i = top; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+    public boolean isFull(){
+        return top == arr.length - 1;
     }
 }
