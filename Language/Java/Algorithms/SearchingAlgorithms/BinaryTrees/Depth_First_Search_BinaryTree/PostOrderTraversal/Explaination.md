@@ -151,6 +151,7 @@ Since `traverse(fifth)` is at the top of the stack. We'll proceed to execute its
 
 After traversing the right subtrees, we'll be back at the `root` for the last time. By definition, post-order traversal will print out the `root` value in the end. We'll print the value of `third` node and pop it off the call stack, ending the whole traverse process.
 
+>Visited nodes : `1` , `2` , `4` , `6` , `5`, `3`
 ---
 ### Final Call Stack Visualization Summary:
 - At each node, we first push a recursive call to traverse the left subtrees.
