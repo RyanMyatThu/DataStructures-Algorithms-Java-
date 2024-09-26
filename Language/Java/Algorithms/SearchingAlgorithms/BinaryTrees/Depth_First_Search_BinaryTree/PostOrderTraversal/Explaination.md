@@ -8,6 +8,7 @@ Post-Order traversal is one of the 3 types of **DFS** (Depth first search) strat
 2. Right sub tree
 3. Root
 
+> Post-order traversal is useful for tasks like evaluating expression trees, where we need to process the operands (left and right subtrees) before applying the operator (root).
 ---
 
 ### How Post-Order Traversal works?
@@ -24,7 +25,7 @@ To understand post-order traversal better, we'll look some examples:
 By definition, the post-order traversal of this tree would follow this path:
 1. Visit the left subtree of the root node (3) → Traverse the left subtree.
 2. After traversing the left subtree, traverse the right subtree of the root node (3).
-3. Then, traverse back to the root (3).
+3. Finally visit the root node after traversing both subtrees.
 
 The post-order traversal of this tree will visit nodes in this order: `1 -> 2 -> 4 -> 6 -> 5 -> 3`.
 
@@ -34,8 +35,8 @@ The post-order traversal of this tree will visit nodes in this order: `1 -> 2 ->
 When a given `Tree` with the root `root` got passed into `traverse(Tree root)`, the method follows these steps:
 
 - Recursively traverse the left subtree.
-- Process the root node (visit or print `root.data`).
 - Recursively traverse the right subtree (call `traverse(root.right)`).
+- Process the root node (visit or print `root.data`).
 
 ---
 
@@ -103,7 +104,7 @@ The base case `if(root == null) return;` handles the dead end by popping it off 
 
 ![image info](./Pictures/SixthStep.png)
 
-Now, with `traverse(first)` on the top of the stack, we'll continue to execute from where we left off. Since, the we've executed `traverse(first.left)`, we proceed to `traverse(first.right)` to traverse to the right subtrees. In this case, the tree node `first` do not possess a `right` node. Consequently, this will result in a similar senario to the previous step.
+Now, with `traverse(first)` on the top of the stack, we'll continue to execute from where we left off. Since we've executed `traverse(first.left)`, we proceed to `traverse(first.right)` to traverse to the right subtrees. In this case, the tree node `first` do not possess a `right` node. Consequently, this will result in a similar senario to the previous step.
 
 ![image info](./Pictures/SeventhStep.png)
 
@@ -156,6 +157,7 @@ After traversing the right subtrees, we'll be back at the `root` for the last ti
 - After the left subtree traversal completes, we will traverse the right subtrees recursively.
 - Finally, we will print the values of the tree nodes which are on the top of the stack.
 - As recursion unwinds, nodes are processed in the order `left -> right -> root`.
+- This traversal method is particularly useful when the post-processing of children is necessary before the root (e.g., in expressions evaluation).
 
 ---
 
