@@ -11,10 +11,20 @@ public class PostOrderTraverse {
         
     }
     public static void main(String[] args) {
-        Tree tree = new Tree(3);
-        tree.left = new Tree(2);
-        tree.right = new Tree(1);
-        traverse(tree);
+        Tree root = new Tree(3);  // Root node
+        Tree node2 = new Tree(2);
+        Tree node5 = new Tree(5);
+        Tree node1 = new Tree(1);
+        Tree node4 = new Tree(4);
+        Tree node6 = new Tree(6);
+
+        // Build the structure
+        root.left = node2;
+        root.right = node5;
+        node2.left = node1;
+        node5.left = node4;
+        node5.right = node6;
+        traverse(root);
     }
 
 }

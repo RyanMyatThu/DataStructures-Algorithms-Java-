@@ -2,7 +2,7 @@
 ---
 
 ## What is In-Order Traversal?
-In-Order traversal one of the 3 types of **DFS** (Depth first search) strategies. During in-order traversal technique, the nodes of the tree will be visited in the following sequence:
+In-Order traversal is one of the 3 types of **DFS** (Depth first search) strategies. During in-order traversal technique, the nodes of the tree will be visited in the following sequence:
 
 1. Left subtree
 2. Root of the tree
