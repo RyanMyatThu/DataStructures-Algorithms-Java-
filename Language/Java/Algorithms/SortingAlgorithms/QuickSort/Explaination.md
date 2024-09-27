@@ -66,6 +66,7 @@ After the loop, we'll swap the values of `pivot` and `arr[i+1]`, using a tempora
 
 **Recursive calls to quickSort method**
 After determining the index of the pivot's correct position, we'll divide the array into two halves and call recursive `quickSort(...)` methods on both halves **recursively** until the array is sorted. [^5]
+
 ---
 Now, `1` is in its correct position. Recursively apply Quick Sort on the two subarrays:
 Left subarray: `[]` (empty, base case).
