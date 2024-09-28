@@ -21,26 +21,20 @@ public class LevelOrderTraverse {
     }
     
     public static void main(String[] args) {
-        Tree first = new Tree(1);
-        Tree second = new Tree(2);
-        Tree third = new Tree(3);
-        Tree fourth = new Tree(4);
-        Tree fifth = new Tree(5);
-        Tree sixth = new Tree(6);
-        Tree seventh = new Tree(7);
-        Tree eigtht = new Tree(8);
-        Tree ninth = new Tree(9);
+        Tree root = new Tree(3);  // Root node
+        Tree node2 = new Tree(2);
+        Tree node5 = new Tree(5);
+        Tree node1 = new Tree(1);
+        Tree node4 = new Tree(4);
+        Tree node6 = new Tree(6);
 
-        first.right = third;
-        first.left = second;
-        second.left = fourth;
-        third.right = fifth;
-        fourth.left = sixth;
-        fourth.right = seventh;
-        fifth.left = eigtht;
-        fifth.right = ninth;
-
-        traverse(first);
+        // Build the structure
+        root.left = node2;
+        root.right = node5;
+        node2.left = node1;
+        node5.left = node4;
+        node5.right = node6;
+        traverse(root);
     }
     
 }

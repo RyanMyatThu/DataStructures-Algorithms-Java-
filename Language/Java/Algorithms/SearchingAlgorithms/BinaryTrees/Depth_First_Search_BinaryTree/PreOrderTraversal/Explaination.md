@@ -58,20 +58,19 @@ public static void traverse(Tree root){
 **The tree initialization** :
 
 ```Java
-        Tree root = new Tree(3);  // Root node
-        Tree node2 = new Tree(2);
-        Tree node5 = new Tree(5);
-        Tree node1 = new Tree(1);
-        Tree node4 = new Tree(4);
-        Tree node6 = new Tree(6);
+        Tree third = new Tree(3);  // Root node
+        Tree second = new Tree(2); // Left child of 3
+        Tree fifth = new Tree(5);  // Right child of 3
+        Tree first = new Tree(1);  // Left child of 2
+        Tree fourth = new Tree(4); // Left child of 5
+        Tree sixth = new Tree(6);  // Right child of 5
 
-        // Build the structure
-        root.left = node2;
-        root.right = node5;
-        node2.left = node1;
-        node5.left = node4;
-        node5.right = node6;
-        traverse(root);
+        // Connect the nodes to form the binary tree
+        third.left = second;       // 2 is the left child of 3
+        third.right = fifth;       // 5 is the right child of 3
+        second.left = first;       // 1 is the left child of 2
+        fifth.left = fourth;       // 4 is the left child of 5
+        fifth.right = sixth;       // 6 is the right child of 5
 ```
 ---
 
