@@ -56,7 +56,18 @@ public class DoublyLinkedList {
         size++;
 
     }
-
+    public int search(int val){
+        Node cur = head;
+        int count = 1;
+        while(cur != null){
+            if(val == cur.data){
+                return count;
+            }
+            cur = cur.next;
+            count++;
+        }
+        return -1;
+    }
     public void removeFirst(){
         if(isEmpty()) throw new RuntimeException("List is empty");
         if(size == 1){
