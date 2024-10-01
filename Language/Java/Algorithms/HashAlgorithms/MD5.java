@@ -104,6 +104,6 @@ public class MD5 {
     public static void main(String[] args) {
         String myName = "Ryan";
         String hashCode = getMD5(myName);
-        System.out.println(hashCode);
+        System.out.println(hashCode); // Expected Output: 131b98dac8609f781484f08c22a8abaa
     }
 }
