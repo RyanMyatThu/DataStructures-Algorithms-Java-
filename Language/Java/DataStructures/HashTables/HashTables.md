@@ -261,7 +261,7 @@ To solve collisions, we can use various methods:
 
 1. Linear probing
 2. Quadratic probing
-3. Double hasing
+3. Double hashing
 
 **Closed Addressing Method**
 
