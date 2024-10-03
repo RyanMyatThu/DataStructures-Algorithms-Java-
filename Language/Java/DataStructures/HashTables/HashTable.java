@@ -89,6 +89,7 @@ public class HashTable<K,V>{
     }
 
     public V remove(K key){
+        if(size == 0) throw new RuntimeException("The hash table is empty!");
         int bucketIndex = getBucketIndex(key);
         int code = hash(key);
         HashNode<K,V> head = bucketArray.get(bucketIndex);
