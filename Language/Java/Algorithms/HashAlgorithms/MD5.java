@@ -22,8 +22,10 @@ public class MD5 {
         }
     }
     private static final int[] SHIFT_AMOUNTS = {
-        7, 12, 17, 22, 5,  9, 14, 20,
-        4, 11, 16, 23, 6, 10, 15, 21
+        7, 12, 17, 22, // For first round
+        5,  9, 14, 20, // For second round
+        4, 11, 16, 23, // For third round
+        6, 10, 15, 21 // For fourth round
     };
 
     // MD5 function
