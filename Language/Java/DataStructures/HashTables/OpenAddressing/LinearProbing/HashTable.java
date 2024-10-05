@@ -7,11 +7,9 @@ public class HashTable <K,V> {
     private class Entry{
         K key;
         V val;
-        int hashCode;
-        Entry(K key, V val, int hashCode){
+        Entry(K key, V val){
             this.key = key;
             this.val = val;
-            this.hashCode = hashCode;
         }
     }
 
@@ -25,7 +23,7 @@ public class HashTable <K,V> {
         int bucketIndex = getBucketIndex(key);
         int hashCode = hash(key);
         Entry occupied = bucket[bucketIndex];
-        Entry newEntry = new Entry(key,val,hashCode);
+        Entry newEntry = new Entry(key,val);
             if(occupied != null){
                 if(occupied.key.equals(key)){
                     occupied.val = val;
