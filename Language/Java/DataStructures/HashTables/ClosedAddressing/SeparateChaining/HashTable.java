@@ -1,4 +1,4 @@
-package Language.Java.DataStructures.HashTables;
+package Language.Java.DataStructures.HashTables.ClosedAddressing.SeparateChaining;
 
 import java.util.ArrayList;
 

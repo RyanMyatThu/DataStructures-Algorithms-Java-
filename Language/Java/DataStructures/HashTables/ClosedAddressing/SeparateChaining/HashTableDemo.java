@@ -1,4 +1,4 @@
-package Language.Java.DataStructures.HashTables;
+package Language.Java.DataStructures.HashTables.ClosedAddressing.SeparateChaining;
 
 public class HashTableDemo {
     public static void main(String[] args) {
