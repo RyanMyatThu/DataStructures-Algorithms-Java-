@@ -63,7 +63,7 @@ public class HashTableDemo {
         // 8. Test Collision Handling
         System.out.println("\n### Testing Collision Handling ###");
         hashTable.add("Aa", 101);
-        hashTable.add("BB", 202); // Intentionally adding colliding keys
+        hashTable.add("BB", 202); // Intentionally adding colliding keys (Aa = 2112, BB = 2112)
         System.out.println("Added 'Aa' and 'BB' (may have the same hash).");
         System.out.println("Get value for 'Aa': " + hashTable.get("Aa")); // Expected: 101
         System.out.println("Get value for 'BB': " + hashTable.get("BB")); // Expected: 202
