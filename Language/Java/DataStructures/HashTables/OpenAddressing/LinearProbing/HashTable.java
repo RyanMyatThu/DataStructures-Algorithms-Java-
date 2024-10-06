@@ -21,7 +21,7 @@ public class HashTable <K,V> {
     public void add(K key, V val){
         if(key == null || val == null) return;
         int bucketIndex = getBucketIndex(key);
-        int hashCode = hash(key);
+        int hashCode = hash(key) & 0x7FFFFFFF;
         Entry occupied = bucket[bucketIndex];
         Entry newEntry = new Entry(key,val);
             if(occupied != null){
@@ -61,7 +61,7 @@ public class HashTable <K,V> {
         }
 
         int bucketIndex = getBucketIndex(key);
-        int hashCode = hash(key);
+        int hashCode = hash(key) & 0x7FFFFFFF;
         Entry occupied = bucket[bucketIndex];
         int n = 1;
         while(occupied != null){
@@ -78,16 +78,18 @@ public class HashTable <K,V> {
        
         bucketIndex = (bucketIndex + 1) % numBucket;
         occupied = bucket[bucketIndex];
-        while(occupied != null){
+        for (int i = 0; i < numBucket; i++) {
+        if(occupied != null){
             Entry temp = occupied;
             K tempKey = temp.key;
             V tempVal = temp.val;
             bucket[bucketIndex] = null;
             size--;
             add(tempKey,tempVal);
-            bucketIndex = (bucketIndex + 1) % numBucket;
-            occupied = bucket[bucketIndex];
         }
+        bucketIndex = (bucketIndex + 1) % numBucket;
+        occupied = bucket[bucketIndex];
+    }
     }
 
     public V get(K key){
@@ -95,7 +97,7 @@ public class HashTable <K,V> {
 
         if(isEmpty()) throw new RuntimeException("Empty hash table");
         int bucketIndex =getBucketIndex(key);
-        int hashCode = hash(key);
+        int hashCode = hash(key) & 0x7FFFFFFF;
         Entry occupied = bucket[bucketIndex];
         int n = 1;
         while(occupied != null){
@@ -113,7 +115,7 @@ public class HashTable <K,V> {
         if(key == null) return false;
 
         int bucketIndex = getBucketIndex(key);
-        int hashCode = hash(key);
+        int hashCode = hash(key) & 0x7FFFFFFF;
         Entry occupied = bucket[bucketIndex];
         int n = 1;
         while(occupied != null){
@@ -128,15 +130,13 @@ public class HashTable <K,V> {
     }
 
     private int getBucketIndex(K key){
-        if(key == null) throw new RuntimeException("No null values allowed");
-
-        int hashCode = hash(key);
-        return hashCode % numBucket;
+        int rawHashKey = hash(key);
+        int hashKey = rawHashKey < 0 ? rawHashKey * -1 : rawHashKey;
+        int index = hashKey % numBucket;
+        return index;
     }
 
     private int hash(K key){
-        if(key == null) throw new RuntimeException("No null values allowed");
-
         if(key instanceof Integer){
             return (int) key;
         } else {
