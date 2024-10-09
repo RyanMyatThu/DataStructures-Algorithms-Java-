@@ -17,58 +17,51 @@ public class HashTable <K,V> {
     Entry[] bucket = (Entry[]) Array.newInstance(Entry.class, 10);
     int numBucket = 10; // default
     int size = 0;
+    Entry dummy = new Entry(null,null);
+    double loadFactor = 0.5;    
+
+    public void setLoadFactor(double loadFactor){
+        this.loadFactor = loadFactor;
+    }
 
     public void add(K key, V val){
         if(key == null || val == null) return;
+
+
+        if((double) size / numBucket >= loadFactor){
+            resize();
+        }
+
         int bucketIndex = getBucketIndex(key);
         int hashCode = hash(key) & 0x7FFFFFFF;
         Entry occupied = bucket[bucketIndex];
         Entry newEntry = new Entry(key,val);
-            if(occupied != null){
-                if(occupied.key.equals(key)){
-                    occupied.val = val;
-                    return;
-                } else {
-                    int n = 1;
-                    while(occupied != null){
-                          bucketIndex = (hashCode + n) % numBucket;
-                          occupied = bucket[bucketIndex]; 
-                          n++;
-                    }
-                }
-            } 
+        int n = 1;
+        while(occupied != null){
+            if(occupied.key != null && occupied.key.equals(key)){
+                bucket[bucketIndex].val = val;
+                return;
+            }
+            bucketIndex = (hashCode + n) % numBucket;
+            n++;
+            occupied = bucket[bucketIndex];
+        }
 
         bucket[bucketIndex] = newEntry;
         size++;
-        // Load factor and resizing 
-
-        if((double) size / numBucket >= 0.7){
-            numBucket = numBucket * 2;
-            size = 0;
-            Entry[] temp = bucket;
-            bucket = (Entry[]) Array.newInstance(Entry.class, numBucket);
-            for (Entry entry : temp) {
-                if(entry != null){
-                 add(entry.key, entry.val);
-                }
-            }
-        }
     }
 
     public void remove(K key){
-        if(!contains(key)) {
-            return;
-        }
 
         int bucketIndex = getBucketIndex(key);
         int hashCode = hash(key) & 0x7FFFFFFF;
         Entry occupied = bucket[bucketIndex];
         int n = 1;
         while(occupied != null){
-            if(occupied.key.equals(key)){
-                bucket[bucketIndex] = null;
+            if(occupied.key != null && occupied.key.equals(key)){
+                bucket[bucketIndex] = dummy;
                 size--;
-                break;
+                return;
             }
             bucketIndex = (hashCode + n) % numBucket;
             occupied = bucket[bucketIndex];
@@ -76,20 +69,7 @@ public class HashTable <K,V> {
         }
         
        
-        bucketIndex = (bucketIndex + 1) % numBucket;
-        occupied = bucket[bucketIndex];
-        for (int i = 0; i < numBucket; i++) {
-        if(occupied != null){
-            Entry temp = occupied;
-            K tempKey = temp.key;
-            V tempVal = temp.val;
-            bucket[bucketIndex] = null;
-            size--;
-            add(tempKey,tempVal);
-        }
-        bucketIndex = (bucketIndex + 1) % numBucket;
-        occupied = bucket[bucketIndex];
-    }
+       
     }
 
     public V get(K key){
@@ -101,7 +81,7 @@ public class HashTable <K,V> {
         Entry occupied = bucket[bucketIndex];
         int n = 1;
         while(occupied != null){
-            if(occupied.key.equals(key)){
+            if(occupied.key != null && occupied.key.equals(key)){
                 return occupied.val;
             }
             bucketIndex = (hashCode + n) % numBucket;
@@ -119,7 +99,7 @@ public class HashTable <K,V> {
         Entry occupied = bucket[bucketIndex];
         int n = 1;
         while(occupied != null){
-            if(occupied.key.equals(key)){
+            if(occupied.key != null && occupied.key.equals(key)){
                 return true;
             }
             bucketIndex = (hashCode + n) % numBucket;
@@ -127,6 +107,20 @@ public class HashTable <K,V> {
             n++;
         }
         return false;
+    }
+
+    private void resize(){
+    
+            numBucket = numBucket * 2;
+            size = 0;
+            Entry[] temp = bucket;
+            bucket = (Entry[]) Array.newInstance(Entry.class, numBucket);
+            for (Entry entry : temp) {
+                if(entry != null && entry.key != null){
+                 add(entry.key, entry.val);
+                }
+            }
+        
     }
 
     private int getBucketIndex(K key){
@@ -156,7 +150,7 @@ public class HashTable <K,V> {
     public void printHashTable(){
         if(isEmpty()) return;
         for(Entry cur : bucket) {
-            if(cur != null){
+            if(cur != null && cur.key != null){
                 System.out.println("Key: " + cur.key + " | Value: " + cur.val);
             }
         }
