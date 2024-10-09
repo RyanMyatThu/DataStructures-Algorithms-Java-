@@ -39,6 +39,7 @@ public class HashTable<K,V>{
         int index = hashKey % numBucket;
         return index;
     }
+
     public HashTable() {
         bucketArray = new ArrayList<>();
         numBucket = 10;
@@ -48,6 +49,7 @@ public class HashTable<K,V>{
     }
 
     public void add(K key, V val){
+        if(key == null || val == null) return;
         int bucketIndex = getBucketIndex(key);
         int hashCode = hash(key);
         HashNode<K,V> newNode = new HashNode<>(key, val, hashCode);
@@ -89,7 +91,8 @@ public class HashTable<K,V>{
     }
 
     public V remove(K key){
-        if(size == 0) throw new RuntimeException("The hash table is empty!");
+        if(key == null) return null;
+        if(isEmpty()) throw new RuntimeException("Hash table is empty");
         int bucketIndex = getBucketIndex(key);
         int code = hash(key);
         HashNode<K,V> head = bucketArray.get(bucketIndex);
@@ -113,6 +116,7 @@ public class HashTable<K,V>{
     }
 
     public V get(K key){
+        if(isEmpty()) throw new RuntimeException("Hash table is empty");
         int bucketIndex = getBucketIndex(key);
         int code = hash(key);
         HashNode<K,V> head = bucketArray.get(bucketIndex);

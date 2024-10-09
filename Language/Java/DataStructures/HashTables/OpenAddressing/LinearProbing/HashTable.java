@@ -52,6 +52,8 @@ public class HashTable <K,V> {
     }
 
     public void remove(K key){
+        if(key == null) return;
+        if(isEmpty()) throw new RuntimeException("Hash table is empty");
 
         int bucketIndex = getBucketIndex(key);
         int hashCode = hash(key) & 0x7FFFFFFF;
@@ -93,6 +95,7 @@ public class HashTable <K,V> {
 
     public boolean contains(K key){
         if(key == null) return false;
+        if(isEmpty()) throw new RuntimeException("Hash table is empty");
 
         int bucketIndex = getBucketIndex(key);
         int hashCode = hash(key) & 0x7FFFFFFF;

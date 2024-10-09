@@ -105,5 +105,7 @@ public class HashTableDemo {
         } catch (RuntimeException e) {
             System.out.println("Caught RuntimeException: " + e.getMessage()); // Expected: "Hash table is empty"
         }
+
+        
     }
 }
