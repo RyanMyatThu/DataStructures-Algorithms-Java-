@@ -21,7 +21,7 @@ public class HashTable <K,V> {
     int prime;
     int size;
 
-    public HashTable(int n, int loadFactor) {
+    public HashTable(int n, double loadFactor) {
        isPrime = new BitSet((int) MAX_SIZE);
        setSieve();
        numBucket = n;
@@ -93,6 +93,18 @@ public class HashTable <K,V> {
             }
             probe = (probe + offset) % numBucket;
         }
+    }
+
+    public V get(K key){
+        if(key == null) throw new RuntimeException("Null keys not accepted");
+        int probe = hash1(key), offset = hash2(key);
+        while(bucket.get(probe) != null){
+            if(bucket.get(probe).key != null && bucket.get(probe).key.equals(key)){
+                return bucket.get(probe).val;
+            }
+            probe = (probe + offset) % numBucket;
+        }
+        return null;
     }
     
     public boolean contains(K key) {
