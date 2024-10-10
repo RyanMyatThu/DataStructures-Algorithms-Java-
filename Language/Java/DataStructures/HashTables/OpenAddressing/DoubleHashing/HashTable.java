@@ -21,10 +21,11 @@ public class HashTable <K,V> {
     int prime;
     int size;
 
-    public HashTable(int n) {
+    public HashTable(int n, int loadFactor) {
        isPrime = new BitSet((int) MAX_SIZE);
        setSieve();
        numBucket = n;
+       this.loadFactor = loadFactor;
        prime = numBucket - 1;
        while(isPrime.get(prime)) prime--;
        size = 0;
@@ -48,12 +49,11 @@ public class HashTable <K,V> {
 
    }
    private int genericHash(K key) {
-    if (key == null) {
-        return 0;
-    }
+    if (key == null) return 0;
     
-    if (key instanceof Integer) {
-        return Math.abs(((Integer) key) % numBucket);
+    
+    if(key instanceof Integer) {
+        return Math.abs(((int) key) % numBucket);
     } else if (key instanceof String) {
         return Math.abs(key.hashCode() % numBucket);
     } else if (key instanceof Double || key instanceof Float) {
@@ -67,7 +67,7 @@ public class HashTable <K,V> {
     public void add(K key, V val){
         if(key == null || val == null) return;
 
-        if((double) size / numBucket >= 0.5){
+        if((double) size / numBucket >= loadFactor){
             resize();
         }
 
