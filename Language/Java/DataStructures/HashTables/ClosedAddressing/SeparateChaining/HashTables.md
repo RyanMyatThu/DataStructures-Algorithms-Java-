@@ -408,7 +408,7 @@ public int getSize(){
 | Deletion      | O(1)                 |
 | Search        | O(1)                 |
 
-> Note: Although in the best case, the operations will perform in constant time but if there are collisions, it becomes O(n).
+> Note: Although in the best case and average case, the operations will perform in constant time but if there are collisions and in worst case, it becomes O(n).
 
 [^1]: The reason why we need the inner class `HashNode` is because we are using the "Separate Chaining Collision Handling Technique", which stores collided indices as a `LinkedList`.
 [^2]: It will be used to calculate our load factor; if we exceed or reach our load factor which is 70% of the current size allocated, we'll double the size of our `bucketArray` and `reHash` all our stored entries using `numBucket`.

@@ -378,5 +378,84 @@ This is similar to our `get` method, but instead of returning the value, this wi
 
 ```Java
 
-
+public boolean contains(K key) {
+        if (key == null) throw new RuntimeException("Null keys not accepted");
+        int probe = hash1(key), offset = hash2(key);
+        while (bucket.get(probe) != null) {
+            if (bucket.get(probe) != dummy && bucket.get(probe).key.equals(key)) {
+                return true;
+            }
+            probe = (probe + offset) % numBucket;
+        }
+        return false;
+    }
 ```
+
+---
+
+## Print HashTable Method
+
+This method will iterate through our hashtable skipping through dummy nodes and printing out the key and value pairs.
+
+```java
+
+public void printHashTable(){
+        if(isEmpty()) return;
+        for(Entry cur : bucket) {
+            if(cur != null && cur.key != null){
+                System.out.println("Key: " + cur.key + " | Value: " + cur.val);
+            }
+        }
+    }
+```
+
+---
+
+## Double Hash Functions
+
+**Hash Function Number 1 :**
+
+```Java
+private int hash1(K key) {
+        return genericHash(key);
+    }
+```
+
+**Generic Hash :**
+
+```Java
+private int genericHash(K key) {
+    if (key == null) return 0;
+
+    if(key instanceof Integer) {
+        return Math.abs(((int) key) % numBucket);
+    } else if (key instanceof String) {
+        return Math.abs(key.hashCode() % numBucket);
+    } else if (key instanceof Double || key instanceof Float) {
+        return Math.abs(Double.valueOf( (double) key).hashCode());
+    } else {
+        // Fallback for custom objects - use Java's built-in hashCode
+     return Math.abs(key.hashCode() % numBucket);
+    }
+    }
+```
+
+**Hash Function Number 2:**
+
+```Java
+private int hash2(K key) {
+    int hash = genericHash(key); // Get the bucketIndex using genericHash
+    return prime - (hash % prime); // Secondary calculation
+    }
+```
+---
+
+## Time Complexity 
+
+|  Operation    |  Time Complexity     |  
+|   ---         | ---                  | 
+| Insertion     | O(1)                 | 
+| Deletion      | O(1)                 |
+| Search        | O(1)                 |
+
+> Note: Although in the best case and average case, the operations will perform in constant time but if there are collisions and in worst case, it becomes O(n).

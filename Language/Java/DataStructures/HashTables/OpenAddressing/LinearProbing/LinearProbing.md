@@ -493,7 +493,7 @@ This will receive a hash key from `hash(...)` then perform a modulo operation to
 | Deletion      | O(1)                 |
 | Search        | O(1)                 |
 
-> Note: Although in the best case, the operations will perform in constant time but if there are collisions, it becomes O(n).
+> Note: Although in the best case and average case, the operations will perform in constant time but if there are collisions and in worst case, it becomes O(n).
 
 
 [^1]: If `occupied` is `null` it means that the space in the hash table is empty and the `entry` that we want to add can be placed in that certain `bucketIndex`. A collision occurs when `occupied` is not null.
