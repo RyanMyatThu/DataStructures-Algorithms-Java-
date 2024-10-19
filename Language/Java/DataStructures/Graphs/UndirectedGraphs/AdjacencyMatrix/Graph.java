@@ -9,7 +9,7 @@ public class Graph {
     private int v; // Number of vertices
     private int e; // Number of edges
     int[][] adjMatrix;
-
+    
     public Graph(int nodes) {
         adjMatrix = new int[nodes][nodes];
         this.e = 0;

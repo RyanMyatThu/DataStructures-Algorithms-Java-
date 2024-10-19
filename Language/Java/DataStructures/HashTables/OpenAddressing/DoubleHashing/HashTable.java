@@ -35,8 +35,21 @@ public class HashTable <K,V> {
        }
     }
 
+    public HashTable(int n) {
+        isPrime = new BitSet((int) MAX_SIZE);
+        setSieve();
+        numBucket = n;
+        prime = numBucket - 1;
+        while(isPrime.get(prime)) prime--;
+        size = 0;
+        for(int i = 0 ; i < numBucket; i++){
+         bucket.add(null);
+ 
+        }
+     }
+
    private void setSieve(){
-    isPrime.set(0, true);
+    isPrime.set(0, true );
     isPrime.set(1, true);
     for (long i = 2; i * i < MAX_SIZE; i++) {
         if(!isPrime.get((int) i)){
