@@ -8,11 +8,13 @@ public interface Graph <V,E> {
      Edge<E> getEdge(Vertex<V> u, Vertex<V> v);
      Vertex<V>[] endVertices(Edge<E> e);
      Vertex<V> opposite(Vertex<V> v ,Edge<E> e);
-     int outGoingEdges(Vertex<V> v);
-     int inComingEdges(Vertex<V> v);
+     Iterable<Edge<E>> outGoingEdges(Vertex<V> v);
+     Iterable<Edge<E>> inComingEdges(Vertex<V> v);
      Vertex<V> insertVertex(V element);
      void insertEdge(Vertex<V> u, Vertex<V> v, E x);
      void removeVertex(Vertex<V> v);
      void removeEdge(Edge<E> e);
+     void dfs(Vertex<V> u);
+     void bfs(Vertex<V> u);
 
 }

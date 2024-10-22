@@ -6,9 +6,14 @@ import Language.Java.DataStructures.Graphs.Position;
 import Language.Java.DataStructures.Graphs.Vertex;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Set;
+import java.util.Stack;
 
 public class AdjacencyMapGraph<V,E> implements Graph<V,E> {
+
 
     private class InnerVertex<V> implements Vertex<V>{
        private V element;
@@ -181,15 +186,15 @@ public class AdjacencyMapGraph<V,E> implements Graph<V,E> {
     }
 
     @Override
-    public int outGoingEdges(Vertex<V> v) {
+    public Iterable<Edge<E>> outGoingEdges(Vertex<V> v) {
         InnerVertex<V> vert = validate(v);
-        return vert.getOutgoing().size();
+        return vert.getOutgoing().values();
     }
 
     @Override
-    public int inComingEdges(Vertex<V> v) {
+    public Iterable<Edge<E>> inComingEdges(Vertex<V> v) {
         InnerVertex<V> vert = validate(v);
-        return vert.getIncoming().size();
+        return vert.getIncoming().values();
     }
 
     @Override
@@ -249,4 +254,38 @@ public class AdjacencyMapGraph<V,E> implements Graph<V,E> {
                 dest.getOutgoing().remove(origin);
             }
         }  
+
+    @Override
+    public void dfs(Vertex<V> u) {
+        InnerVertex<V> vertex = validate(u);
+        Stack<Vertex<V>> stack = new Stack<>();
+        Set<Vertex<V>> isVisited = new HashSet<>();
+        stack.add(vertex);
+        while(!stack.isEmpty()){
+            Vertex<V> current = stack.pop();
+            if(isVisited.add(current)){
+                System.out.print(current.getElement() + " ");
+                for(Edge<E> edge : outGoingEdges(current)){
+                    stack.add(opposite(current, edge));
+            }
+        }
+    }
+}
+
+    @Override
+    public void bfs(Vertex<V> u) {
+        InnerVertex<V> vertex = validate(u);
+        Queue<Vertex<V>> queue = new LinkedList<>();
+        Set<Vertex<V>> isVisited = new HashSet<>();
+        queue.add(vertex);
+        while(!queue.isEmpty()){
+            Vertex<V> current = queue.remove();
+            if(isVisited.add(current)){
+                System.out.print(current.getElement() + " ");
+                for(Edge<E> edge : outGoingEdges(current)){
+                     queue.add(opposite(current, edge));
+                }
+            }
+        }
+    }
     }
