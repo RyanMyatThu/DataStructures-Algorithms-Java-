@@ -193,7 +193,7 @@ public class AdjacencyMapGraph<V,E> implements Graph<V,E> {
     }
 
     @Override
-    public void insertVertex(V element) {
+    public Vertex<V> insertVertex(V element) {
         if (element == null) {
             throw new IllegalArgumentException("Vertex element cannot be null");
         }
@@ -201,6 +201,7 @@ public class AdjacencyMapGraph<V,E> implements Graph<V,E> {
         vertices.addLast(vertex);
         Position<Vertex<V>> p = new Position<>(vertex, vertices.size() - 1);
         vertex.setPosition(p);
+        return vertex;
     }
 
     @Override

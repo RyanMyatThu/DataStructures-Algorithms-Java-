@@ -10,7 +10,7 @@ public interface Graph <V,E> {
      Vertex<V> opposite(Vertex<V> v ,Edge<E> e);
      int outGoingEdges(Vertex<V> v);
      int inComingEdges(Vertex<V> v);
-     void insertVertex(V element);
+     Vertex<V> insertVertex(V element);
      void insertEdge(Vertex<V> u, Vertex<V> v, E x);
      void removeVertex(Vertex<V> v);
      void removeEdge(Edge<E> e);
