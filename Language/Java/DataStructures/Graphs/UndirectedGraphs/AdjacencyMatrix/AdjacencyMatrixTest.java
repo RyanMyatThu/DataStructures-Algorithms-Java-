@@ -1,11 +1,12 @@
-package Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjacencyMap;
+package Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjacencyMatrix;
 
+import Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjacencyMap.AdjacencyMapGraph;
 import Language.Java.DataStructures.Graphs.Vertex;
 
-public class AdjacencyMapTest {
+public class AdjacencyMatrixTest {
     public static void main(String[] args) {
-        AdjacencyMapGraph<Integer, Integer> graph = new AdjacencyMapGraph<>(false);
-        Vertex<Integer> vertexA = graph.insertVertex(0);
+       AdjacencyMapGraph<Integer, Integer> graph = new AdjacencyMapGraph<>(false);
+       Vertex<Integer> vertexA = graph.insertVertex(0);
         Vertex<Integer> vertexB = graph.insertVertex(1);
         graph.insertEdge(vertexA, vertexB, 10);
         Vertex<Integer> vertexC = graph.insertVertex(3);
@@ -17,7 +18,5 @@ public class AdjacencyMapTest {
         graph.dfs(vertexA);
         System.out.println();
         graph.bfs(vertexA);
-       
     }
-    
 }
