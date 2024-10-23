@@ -16,5 +16,5 @@ public interface Graph <V,E> {
      void removeEdge(Edge<E> e);
      void dfs(Vertex<V> u);
      void bfs(Vertex<V> u);
-
+     void printGraph();
 }

@@ -1,0 +1,168 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "MD5",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.HashAlgorithms.MD5",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "BinarySearch",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SearchingAlgorithms.BinarySearch.BinarySearch",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "LevelOrderTraverse",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Breadth_First_Search_BinaryTree.LevelOrderTraversal.LevelOrderTraverse",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "InOrderTraverse",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Depth_First_Search_BinaryTree.InOrderTraversal.InOrderTraverse",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "PostOrderTraverse",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Depth_First_Search_BinaryTree.PostOrderTraversal.PostOrderTraverse",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "PreOrderTraverse",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SearchingAlgorithms.BinaryTrees.Depth_First_Search_BinaryTree.PreOrderTraversal.PreOrderTraverse",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "BubbleSort",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SortingAlgorithms.BubbleSort.BubbleSort",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "InsertionSort",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SortingAlgorithms.InsertionSort.InsertionSort",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "MergeSort",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SortingAlgorithms.MergeSort.MergeSort",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "QuickSort",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SortingAlgorithms.QuickSort.QuickSort",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "SelectionSort",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SortingAlgorithms.SelectionSort.SelectionSort",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "AdjacencyMapTest",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjacencyMap.AdjacencyMapTest",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "AdjacencyMatrixTest",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjacencyMatrix.AdjacencyMatrixTest",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "Graph",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjancencyList.Graph",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "HashTableDemo",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.HashTables.ClosedAddressing.SeparateChaining.HashTableDemo",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "HashTableDemo(1)",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.HashTables.OpenAddressing.DoubleHashing.HashTableDemo",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "HashTableDemo(2)",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.HashTables.OpenAddressing.LinearProbing.HashTableDemo",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "HashTableDemo(3)",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.HashTables.OpenAddressing.QuadraticProbing.HashTableDemo",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "DoublyLinkedListDemo",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.LinkedLists.DoublyLinkedLists.DoublyLinkedListDemo",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "SinglyLinkedListDemo",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.LinkedLists.SinglyLinkedLists.SinglyLinkedListDemo",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "StackDemo",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.Stacks.ImplementUsingArrays.StackDemo",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "StackDemo(1)",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.Stacks.ImplementUsingLinkedLIst.StackDemo",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        }
+    ]
+}

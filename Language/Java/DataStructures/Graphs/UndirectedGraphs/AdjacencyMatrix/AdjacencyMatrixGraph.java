@@ -145,13 +145,14 @@ public class AdjacencyMatrixGraph<V,E> implements Graph<V, E>{
     @Override
     public Vertex<V> opposite(Vertex<V> v, Edge<E> e) {
         InnerVertex<V> vert = validate(v);
-        Vertex<V>[] endPoints = e.getEndPoints();
+        InnerEdge<E> edge = validate(e);
+        Vertex<V>[] endPoints = edge.getEndPoints();
         if(endPoints == null){
             throw new IllegalArgumentException("Edge without endpoints!");
         }
-        if(vert.getElement().equals(endPoints[0])){
+        if(endPoints[0].equals(vert)){
             return endPoints[1];
-        } else if(vert.getElement().equals(endPoints[1])){
+        } else if(endPoints[1].equals(vert)){
             return endPoints[0];
         }
         return null;
@@ -213,8 +214,16 @@ public class AdjacencyMatrixGraph<V,E> implements Graph<V, E>{
                 removeEdge(edge);
         }
         
-        vertices.remove(vert.getPosition().getIndex());
+        int indexToRemove = vert.getPosition().getIndex();
+
+        vertices.remove(indexToRemove);
         vertexCount--;
+
+        for(int i = indexToRemove; i < vertices.size(); i++){
+            InnerVertex<V> vertex = (InnerVertex<V>) vertices.get(i);
+            Position<Vertex<V>> newPosition = new Position<>(vertex, i);
+            vertex.setPosition(newPosition);
+        }
         
     }
 
@@ -230,6 +239,8 @@ public class AdjacencyMatrixGraph<V,E> implements Graph<V, E>{
         if(!isDirected){
             adjMatrix[dest.getPosition().getIndex()][origin.getPosition().getIndex()] = null;
         }
+
+        edges.remove(edge);
         
         
     }
@@ -266,12 +277,28 @@ public class AdjacencyMatrixGraph<V,E> implements Graph<V, E>{
             if(isVisited.add(current)){
                 System.out.print(current.getElement() + " ");
                 for(Edge<E> edge : adjMatrix[pos]){
+                    if(edge != null){
                     queue.add(opposite(current, edge));
+                    }
                 }
             }
         }
 
 
+    }
+
+    @Override
+    public void printGraph(){
+        for (Edge<E>[] matrix : adjMatrix) {
+            for (Edge<E> edge : matrix) {
+                if (edge != null) {
+                    System.out.print(1 + " ");
+                } else {
+                    System.out.print(0 + " ");
+                }
+            }
+            System.out.println();
+        }
     }
 
     private InnerVertex<V> validate(Vertex<V> vertex){
