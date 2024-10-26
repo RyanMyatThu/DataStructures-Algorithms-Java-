@@ -4,8 +4,6 @@ import java.util.Arrays;
 
 public class SelectionSort {
     static void sort(int[] arr){
-       
-      
        for (int i = 0; i < arr.length; i++) {
            int min = arr[i];
            int minIndex = i;
@@ -15,7 +13,6 @@ public class SelectionSort {
                         minIndex = j;
                     }
            }
-           
            if(arr[i] > min){
             int temp = arr[i];
             arr[i] = min;
@@ -28,5 +25,4 @@ public class SelectionSort {
         sort(array);
         System.out.println(Arrays.toString(array));
     }
-    
 }
