@@ -108,7 +108,7 @@ public class AdjacencyMapGraph<V,E> implements Graph<V,E> {
         }
         InnerVertex<V> vert = (InnerVertex<V>) v;
 
-        if(!vert.getPosition().getElement().equals(v)){
+        if(!vertices.contains(vert)){
             throw new IllegalArgumentException("The given vertex does not belong to this graph");
         }
 

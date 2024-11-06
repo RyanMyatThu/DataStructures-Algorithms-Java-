@@ -1,12 +1,12 @@
-package Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjacencyMatrix;
+package Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjancencyList;
 
 import Language.Java.DataStructures.Graphs.Edge;
 import Language.Java.DataStructures.Graphs.Vertex;
 
-public class AdjacencyMatrixTest {
+public class AdjacencyListGraphTest {
     public static void main(String[] args) {
-        // Create a directed graph with a capacity of 5
-        AdjacencyMatrixGraph<String, Integer> graph = new AdjacencyMatrixGraph<>(5, true);
+             // Create a directed graph with a capacity of 5
+        AdjacencyListGraph<String, Integer> graph = new AdjacencyListGraph<>( true);
 
         // Test 1: Adding vertices
         System.out.println("Test 1: Adding vertices");
@@ -26,7 +26,7 @@ public class AdjacencyMatrixTest {
         System.out.println("Actual number of edges: " + graph.numEdges());
 
         // Print the adjacency matrix
-        System.out.println("\nAdjacency Matrix after adding edges:");
+        System.out.println("\nAdjacency List after adding edges:");
         graph.printGraph();
 
         // Test 3: DFS Traversal
@@ -48,7 +48,7 @@ public class AdjacencyMatrixTest {
         System.out.println("Actual number of edges after removal: " + graph.numEdges());
         
         // Print the adjacency matrix after edge removal
-        System.out.println("\nAdjacency Matrix after removing edge A -> B:");
+        System.out.println("\nAdjacency List after removing edge A -> B:");
         graph.printGraph();
 
         // Test 6: Removing a vertex
@@ -79,6 +79,5 @@ public class AdjacencyMatrixTest {
 
 
     }
-
-   
+    
 }

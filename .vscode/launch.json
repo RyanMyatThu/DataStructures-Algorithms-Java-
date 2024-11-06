@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AdjacencyListGraphTest",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjancencyList.AdjacencyListGraphTest",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

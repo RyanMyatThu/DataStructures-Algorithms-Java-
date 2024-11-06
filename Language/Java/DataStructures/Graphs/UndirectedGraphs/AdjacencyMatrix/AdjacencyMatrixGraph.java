@@ -307,7 +307,7 @@ public class AdjacencyMatrixGraph<V,E> implements Graph<V, E>{
             throw new IllegalArgumentException("Not a valid vertex for this graph");
         }
         InnerVertex<V> vert = (InnerVertex<V>) vertex;
-        if(!vert.getPosition().getElement().equals(vertex)){
+        if(!vertices.contains(vert)){
             throw new IllegalArgumentException("Given vertex doesn't belong to this graph");  
         }     
         return vert;
