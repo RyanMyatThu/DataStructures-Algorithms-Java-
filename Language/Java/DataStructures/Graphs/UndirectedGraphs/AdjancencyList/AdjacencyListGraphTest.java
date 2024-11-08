@@ -59,7 +59,7 @@ public class AdjacencyListGraphTest {
         System.out.println("Actual number of vertices after removal: " + graph.numVertices());
         
         // Print the adjacency matrix after vertex removal
-        System.out.println("\nAdjacency Matrix after removing vertex B:");
+        System.out.println("\nAdjacency List after removing vertex B:");
         graph.printGraph();
 
         // Test 7: Adding back vertex and creating new edges
@@ -71,7 +71,7 @@ public class AdjacencyListGraphTest {
         System.out.println("Actual number of vertices after adding back B: " + graph.numVertices());
         
         // Print the adjacency matrix after adding back vertex B
-        System.out.println("\nAdjacency Matrix after adding back vertex B:");
+        System.out.println("\nAdjacency List after adding back vertex B:");
         graph.printGraph();
 
 

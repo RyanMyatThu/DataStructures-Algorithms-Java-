@@ -1,4 +1,4 @@
-package Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjacencyMap;
+package Language.Java.Algorithms.GraphTheory.Floyd_Warshall;
 
 import Language.Java.DataStructures.Graphs.Edge;
 import Language.Java.DataStructures.Graphs.Graph;
@@ -161,7 +161,7 @@ public class AdjacencyMapGraph<V,E> implements Graph<V,E> {
 
     @Override
     public Vertex<V>[] endVertices(Edge<E> e) {
-        InnerEdge<E> edge = validate(e);
+        InnerEdge edge = validate(e);
         return edge.getEndPoints();
     }
 

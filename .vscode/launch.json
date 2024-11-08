@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Floyd_Warshall",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.GraphTheory.Floyd_Warshall.AllPairsShortestPath.Floyd_Warshall",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
             "name": "AdjacencyListGraphTest",
             "request": "launch",
             "mainClass": "Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjancencyList.AdjacencyListGraphTest",
