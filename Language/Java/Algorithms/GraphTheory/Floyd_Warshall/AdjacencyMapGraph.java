@@ -61,7 +61,6 @@ public class AdjacencyMapGraph<V,E> implements Graph<V,E> {
       private  Vertex<V> [] endPoints;
 
       public InnerEdge(Vertex<V> u, Vertex<V> v, E element){
-        if(element == null || u == null || v == null){ throw new IllegalArgumentException("Null values or vertices aren't allowed!");}
 
         endPoints = (Vertex<V> []) new Vertex[2];
         this.element = element;
@@ -116,7 +115,6 @@ public class AdjacencyMapGraph<V,E> implements Graph<V,E> {
     }
 
     private InnerEdge<E> validate(Edge<E> e){
-        if(e == null) throw new IllegalArgumentException("Edge cannot be null");
         if(!(e instanceof InnerEdge)){
             throw new IllegalArgumentException("Not a valid edge for this graph");
         }
