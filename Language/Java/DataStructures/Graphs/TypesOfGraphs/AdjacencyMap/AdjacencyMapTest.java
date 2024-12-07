@@ -1,4 +1,4 @@
-package Language.Java.DataStructures.Graphs.UndirectedGraphs.AdjacencyMap;
+package Language.Java.DataStructures.Graphs.TypesOfGraphs.AdjacencyMap;
 
 import Language.Java.DataStructures.Graphs.Vertex;
 

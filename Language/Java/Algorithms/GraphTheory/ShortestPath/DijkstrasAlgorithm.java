@@ -5,65 +5,71 @@ import Language.Java.DataStructures.Graphs.Edge;
 import Language.Java.DataStructures.Graphs.Graph;
 import Language.Java.DataStructures.Graphs.Vertex;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class DijkstrasAlgorithm{
 
+    private static class VertexDistance<V>{
+        Vertex<V> destination;
+        int distance;
+        VertexDistance(Vertex<V> dest, int dist){
+            destination = dest;
+            distance = dist;
+        }
+
+
+    }
+
     public static <V, E> HashMap<Vertex<V>, Integer> searchPath(Vertex<V> vertex, Graph<V,E> graph){
         
         int distFromSource = 0;
-        int vertices = graph.numVertices();
-        int[] dist = new int[vertices];
+        int vertCount = graph.numVertices();
+        List<Vertex<V>> vertices = convert(graph.vertices());
+        int[] dist = new int[vertCount];
         HashMap<Vertex<V>, Integer> result = new HashMap<>();
         
         HashSet<Vertex<V>> visited = new HashSet<>();
         Queue<Vertex<V>> queue = new LinkedList();
+        PriorityQueue<VertexDistance<V>> pq = new PriorityQueue<>(Comparator.comparingInt(v -> v.distance));
 
         queue.add(vertex);
+        pq.add(new VertexDistance<>(vertex, 0));
 
         
-        for(int i = 0; i < vertices; i++){
+        for(int i = 0; i < vertCount; i++){
+                if(i != vertex.getPosition().getIndex()){
                 dist[i] = Integer.MAX_VALUE;
+                result.put(vertices.get(i), Integer.MAX_VALUE);
+                } else {
+                    dist[vertex.getPosition().getIndex()] = 0;
+                }
         }
-        dist[vertex.getPosition().getIndex()] = 0;
+        
 
-        while(!queue.isEmpty()){
-            Vertex<V> current = queue.poll();
-            List<Edge<E>> outgoing = convert(graph.outGoingEdges(current));
-            if(!outgoing.isEmpty()){
-            Edge<E> min = outgoing.get(0);
-            for(Edge<E> edge : outgoing){
-                Vertex<V> dest = graph.opposite(current, edge);
-                if(graph.getEdge(vertex, current) != null && dist[dest.getPosition().getIndex()] == Integer.MAX_VALUE){
-                    dist[dest.getPosition().getIndex()] = distFromSource + (int) edge.getElement();
-                    result.put(dest, distFromSource + (int) edge.getElement());
-                    graph.insertEdge(vertex, dest, null);
-                }
-                if(dist[dest.getPosition().getIndex()] == Integer.MAX_VALUE){
-                    dist[dest.getPosition().getIndex()] = (int) edge.getElement();
-                    result.put(dest,(int) edge.getElement());
-                }
-                if(graph.getEdge(vertex,current) != null && dist[dest.getPosition().getIndex()] > distFromSource + (int) edge.getElement() ){
-                    dist[dest.getPosition().getIndex()] = distFromSource + (int) edge.getElement();
-                    result.put(dest, distFromSource + (int) edge.getElement());
-                }
-                if((int) min.getElement() > (int) edge.getElement()){
-                    min = edge;
-                }
-            }
-            distFromSource += (int) min.getElement();
-            Vertex<V> next = graph.opposite(current, min);
-           
-            if(!visited.contains(next)){
-            queue.add(next);
-            }
+        while(!pq.isEmpty()){
+            VertexDistance<V> vertexDistance = pq.poll();
+            Vertex<V> current = vertexDistance.destination;
+            if(visited.contains(current)) continue;
             visited.add(current);
+            for(Edge<E> edge : graph.outGoingEdges(current)){
+                Vertex<V> dest = graph.opposite(current, edge);
+                int weight = (int) edge.getElement();
+                int newDistance = dist[current.getPosition().getIndex()] + weight;
+
+                if(newDistance < dist[dest.getPosition().getIndex()]){
+                    dist[dest.getPosition().getIndex()] = newDistance;
+                    result.put(dest, newDistance);
+                    pq.add(new VertexDistance<>(dest,newDistance));
+                }
+
+            }
         }
-    }
        printSolution(vertex , dist , graph);
        return result;
     }
@@ -81,43 +87,52 @@ public class DijkstrasAlgorithm{
         System.out.println();
         System.out.print(vertex.getElement() + " ");
         for(int i = 0; i < dist.length; i++){
+            if(dist[i] == Integer.MAX_VALUE){
+            System.out.print( " " + "∞" + " ");
+            } else {
             System.out.print( " " + dist[i] + " ");
+            }
         }
         System.out.println();
         
     }
 
-    static <E> List<Edge<E>> convert(Iterable<Edge<E>> edges){
-        List<Edge<E>> list = new ArrayList<>();
-        for(Edge<E> edge : edges){
-            list.add(edge);
+    static <E> List<E> convert(Iterable<E> items){
+        List<E> list = new ArrayList<>();
+        for(E item : items){
+            list.add(item);
         }
         return list;
     }
 
     public static void main(String[] args) {
-        AdjacencyMapGraph<String, Integer> graph1 = new AdjacencyMapGraph<>(true);
+      AdjacencyMapGraph<Integer, Integer> graph = new AdjacencyMapGraph<>(true);
 
-        Vertex<String> v0 = graph1.insertVertex("A");
-        Vertex<String> v1 = graph1.insertVertex("B");
-        Vertex<String> v2 = graph1.insertVertex("C");
-        Vertex<String> v3 = graph1.insertVertex("D");
-        
-        // Add edges with weights
-        graph1.insertEdge(v0, v1, 4);
-        graph1.insertEdge(v0, v2, 1);
-        graph1.insertEdge(v1, v2, 2);
-        graph1.insertEdge(v1, v3, 5);
-        graph1.insertEdge(v2, v3, 8);
-        
-        
-        System.out.println("Graph 1 structure:");
+    // Insert vertices
+    Vertex<Integer> v0 = graph.insertVertex(0);
+    Vertex<Integer> v1 = graph.insertVertex(1);
+    Vertex<Integer> v2 = graph.insertVertex(2);
+    Vertex<Integer> v3 = graph.insertVertex(3);
+    Vertex<Integer> v4 = graph.insertVertex(4); // Disconnected
 
-      Vertex<String> source = v0;
-      HashMap<Vertex<String>, Integer> result =  searchPath(source, graph1);
-    System.out.println("Calculating shortest distances from the vertex " +  source.getElement());
+    // Insert edges with weights
+    graph.insertEdge(v0, v1, 4);
+    graph.insertEdge(v0, v2, 1);
+    graph.insertEdge(v2, v3, 2);
+
+    // Test Dijkstra's algorithm
+    System.out.println("Testing Disconnected Graph:");
+    HashMap<Vertex<Integer>, Integer> result = searchPath(v0, graph);
+
+
+    Vertex<Integer> source = v0;
+     System.out.println("Calculating shortest distances from the vertex " +  source.getElement());
      result.forEach((Vert,Dist) -> {
+        if(Dist != Integer.MAX_VALUE){
         System.out.println("Shortest Distance To " + Vert.getElement() + " is " + Dist);
+        } else {
+            System.out.println("Cannot reach to vertex " + Vert.getElement());
+        }
      });
         
     }
