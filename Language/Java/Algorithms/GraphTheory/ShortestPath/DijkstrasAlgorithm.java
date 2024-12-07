@@ -8,10 +8,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class DijkstrasAlgorithm{
 
@@ -36,7 +34,6 @@ public class DijkstrasAlgorithm{
         HashSet<Vertex<V>> visited = new HashSet<>();
         PriorityQueue<VertexDistance<V>> pq = new PriorityQueue<>(Comparator.comparingInt(v -> v.distance));
 
-        queue.add(vertex);
         pq.add(new VertexDistance<>(vertex, 0));
 
         
