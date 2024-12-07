@@ -28,14 +28,12 @@ public class DijkstrasAlgorithm{
 
     public static <V, E> HashMap<Vertex<V>, Integer> searchPath(Vertex<V> vertex, Graph<V,E> graph){
         
-        int distFromSource = 0;
         int vertCount = graph.numVertices();
         List<Vertex<V>> vertices = convert(graph.vertices());
         int[] dist = new int[vertCount];
         HashMap<Vertex<V>, Integer> result = new HashMap<>();
         
         HashSet<Vertex<V>> visited = new HashSet<>();
-        Queue<Vertex<V>> queue = new LinkedList();
         PriorityQueue<VertexDistance<V>> pq = new PriorityQueue<>(Comparator.comparingInt(v -> v.distance));
 
         queue.add(vertex);
