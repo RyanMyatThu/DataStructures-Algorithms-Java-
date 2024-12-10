@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BellManFord",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.GraphTheory.BellMan_Ford.BellManFord",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
             "name": "DijkstrasAlgorithm",
             "request": "launch",
             "mainClass": "Language.Java.Algorithms.GraphTheory.ShortestPath.DijkstrasAlgorithm",
