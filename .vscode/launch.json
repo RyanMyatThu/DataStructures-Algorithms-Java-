@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TopologicalSort",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.GraphTheory.TopologicalSort.TopologicalSort",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
             "name": "BellManFord",
             "request": "launch",
             "mainClass": "Language.Java.Algorithms.GraphTheory.BellMan_Ford.BellManFord",
