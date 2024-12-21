@@ -211,7 +211,7 @@ public class AdjacencyMatrixGraph<V,E> implements Graph<V, E>{
         }
         
         for(Edge<E> edge : vert.getIncoming().values()){
-                removeEdge(edge);
+            removeEdge(edge);
         }
         
         int indexToRemove = vert.getPosition().getIndex();

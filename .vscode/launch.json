@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PrimsAlgorithm",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.GraphTheory.PrimsAlgorithm.PrimsAlgorithm",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
+            "name": "PrimsAlgorithm",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.GraphTheory.PrimsAlgorithm.PrimsAlgorithm.PrimsAlgorithm",
+            "projectName": "DataStructures-Algorithms-Java-_6f2c3199"
+        },
+        {
+            "type": "java",
             "name": "TopologicalSort",
             "request": "launch",
             "mainClass": "Language.Java.Algorithms.GraphTheory.TopologicalSort.TopologicalSort",

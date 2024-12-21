@@ -398,7 +398,7 @@ To implement our interfaces we would need to create two inner classes.
 
 ``` Java
 
-private class InnerVertex<V> implements Vertex<V>{
+       private class InnerVertex<V> implements Vertex<V>{
        private V element;
        private Position<Vertex<V>> p;
        private HashMap<Vertex<V>, Edge<E>> outgoing, incoming;
