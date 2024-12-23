@@ -120,15 +120,18 @@ public class BST<K,V> {
         }
         return node;
     }
+
     public Iterable<Entry<K, V>> entrySet() {
         ArrayList<Entry<K, V>> entries = new ArrayList<>();
         inorderTraversal(root, entries);
         return entries;
     }
+
     private Node<K, V> findMin(Node<K, V> node) {
         while (node.left != null) node = node.left;
         return node;
     }
+    
     private void inorderTraversal(Node<K, V> node, ArrayList<Entry<K, V>> entries) {
         if (node != null) {
             inorderTraversal(node.left, entries);

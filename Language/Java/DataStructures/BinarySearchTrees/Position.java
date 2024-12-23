@@ -8,9 +8,6 @@ public class Position <V> {
         this.element = element;
         this.index = index;
     }
-
-    
-
     public V getElement(){
         return element;
     }
