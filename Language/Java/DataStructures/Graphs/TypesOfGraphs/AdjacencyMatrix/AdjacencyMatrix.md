@@ -735,6 +735,7 @@ Removing vertices coincides with removing edges, because whenever we remove a ve
         
     }
 ```
+The following code is for the removal of edges. To remove an edge, we first validate the edge to be removed. Then, we obtain the origin and destination vertices from `getEndPoints()` method. We remove the edges from each vertex (Origin and Destination). First, we remove the incoming and outcoming edge from both vertices. Lastly, we would do the same thing for the adjacency matrix. This process varies with the type of graph (Directed Or  Undirected). If it is directed, we will need to remove the edge from `adjMatrix[origin, destination]`. However, if it is undirected, we will need to remove the edge from both `adjmatrix[origin,destination]` and `adjMatrix[destination,origin]`.
 
 ```Java
     @Override
@@ -752,3 +753,64 @@ Removing vertices coincides with removing edges, because whenever we remove a ve
         edges.remove(edge);
     }
 ```
+
+---
+
+### Traversal Algorithms (DFS and BFS)
+
+In order to perform depth-first-search traversal we would need, a stack to keep track of which vertex we should traverse next and a set to keep track of visited vertices.
+
+
+```Java
+ @Override
+    public void dfs(Vertex<V> u) {
+        InnerVertex<V> vert = validate(u);
+        Stack<Vertex<V>> stack = new Stack<>();
+        Set<Vertex<V>> isVisited = new HashSet<>();
+        stack.add(vert);
+        while(!stack.isEmpty()){
+            Vertex<V> current = stack.pop();
+            int pos = current.getPosition().getIndex();
+            if(isVisited.add(current)){
+                System.out.print(current.getElement() + " ");
+                for(Edge<E> edge : adjMatrix[pos]){
+                    if(edge != null){
+                        stack.add(opposite(current, edge));
+                    }
+                }
+            }
+        }
+    }
+```
+
+In order to perform breadth-first-search traversal we would need a queue to keep track of which vertex we should traverse next and a set to keep track of visited vertices.
+
+``` Java
+@Override
+    public void bfs(Vertex<V> u) {
+        InnerVertex<V> vert = validate(u);
+        Queue<Vertex<V>> queue = new LinkedList<>();
+        Set<Vertex<V>> isVisited = new HashSet<>();
+        queue.add(vert);
+        while(!queue.isEmpty()){
+            Vertex<V> current = queue.poll();
+            int pos = current.getPosition().getIndex();
+            if(isVisited.add(current)){
+                System.out.print(current.getElement() + " ");
+                for(Edge<E> edge : adjMatrix[pos]){
+                    if(edge != null){
+                    queue.add(opposite(current, edge));
+                    }
+                }
+            }
+        }
+    }
+```
+
+| Operation | Adjacency Matrix | Adjacency Map |
+| ---       |  ---             | ---           |
+| Space Complexity | O(V^2^)   | O(V + E)      |
+| Adding Vertex | O(V^2^)         | O(1) 
+| Adding Edge   | O(1)            | O(1)       |
+| Removing Edge | O(1)            | O(1)       |
+| Checking For Edge Existance | O(1) | O(1)    |
