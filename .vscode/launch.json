@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SelectionSort",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.SortingAlgorithms.SelectionSort.SelectionSort",
+            "projectName": "DataStructures-Algorithms-Java-_c2a28a07"
+        },
+        {
+            "type": "java",
+            "name": "MD5",
+            "request": "launch",
+            "mainClass": "Language.Java.Algorithms.HashAlgorithms.MD5",
+            "projectName": "DataStructures-Algorithms-Java-_c2a28a07"
+        },
+        {
+            "type": "java",
+            "name": "HashTableDemo",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.HashTables.ClosedAddressing.SeparateChaining.HashTableDemo",
+            "projectName": "DataStructures-Algorithms-Java-_c2a28a07"
+        },
+        {
+            "type": "java",
             "name": "PrimsAlgorithm",
             "request": "launch",
             "mainClass": "Language.Java.Algorithms.GraphTheory.PrimsAlgorithm.PrimsAlgorithm",

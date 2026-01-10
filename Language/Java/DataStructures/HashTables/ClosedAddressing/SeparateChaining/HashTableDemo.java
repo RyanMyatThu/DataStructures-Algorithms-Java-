@@ -11,6 +11,7 @@ public class HashTableDemo {
         hashTable.add("key1", "value1");
         hashTable.add("key2", "value2");
         hashTable.add("key3", "value3");
+        hashTable.add("Hello", "VEL");
         
         // Display current size
         System.out.println("Current size: " + hashTable.getSize()); // Should be 3

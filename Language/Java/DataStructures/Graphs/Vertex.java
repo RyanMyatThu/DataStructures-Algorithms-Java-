@@ -6,3 +6,4 @@ public interface Vertex<V> {
     void setPosition(Position<Vertex<V>> p);
     Position<Vertex<V>> getPosition();    
 }
+

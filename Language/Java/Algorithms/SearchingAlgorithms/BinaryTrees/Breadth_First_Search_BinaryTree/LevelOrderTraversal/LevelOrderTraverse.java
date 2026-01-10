@@ -6,16 +6,17 @@ import java.util.Queue;
 
 public class LevelOrderTraverse {
     public static void traverse(Tree root){
+        if(root == null) return;
         Queue<Tree> queue = new LinkedList<>();
         queue.add(root);
         while(!queue.isEmpty()){
             Tree current = queue.remove();
             System.out.println(current.data);
             if(current.left != null){
-            queue.add(current.left);
+                queue.add(current.left);
             }
             if(current.right != null){
-            queue.add(current.right);
+                queue.add(current.right);
             }
         }
     }

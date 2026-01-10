@@ -18,3 +18,4 @@ public interface Graph <V,E> {
      void bfs(Vertex<V> u);
      void printGraph();
 }
+

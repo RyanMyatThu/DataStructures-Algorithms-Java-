@@ -30,6 +30,7 @@ public class HashTable<K,V>{
                 hashCode += keyStr.charAt(i) * power;
                 power *= 31; 
             }
+            System.out.println(hashCode);
             return hashCode;
         }
     }
