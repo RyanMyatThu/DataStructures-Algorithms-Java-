@@ -4,7 +4,7 @@
 
 **Contents**
 
-`Language Available` -> `Java` `Python`
+`Language Available` -> `Java`
 
 **Algorithms and Datastructures**
 
