@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "HeapTest",
+            "request": "launch",
+            "mainClass": "Language.Java.DataStructures.Heaps.MaxHeap.HeapTest",
+            "projectName": "DataStructures-Algorithms-Java-_c2a28a07"
+        },
+        {
+            "type": "java",
             "name": "SelectionSort",
             "request": "launch",
             "mainClass": "Language.Java.Algorithms.SortingAlgorithms.SelectionSort.SelectionSort",
