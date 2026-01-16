@@ -1,4 +1,5 @@
 # Merge Sort
+
 ---
 
 ## What Is Merge Sort?
@@ -42,7 +43,7 @@ To be able to know clearly on how Merge Sort works, we shall look at the `Divide
                 j++;
             }
         }
-        
+
         //Recursive calls to left and right sub arrays.
         mergeSort(leftSubArr);
         mergeSort(rightSubArr);
@@ -78,27 +79,28 @@ To be able to know clearly on how Merge Sort works, we shall look at the `Divide
             arr[z] = rightArr[j];
             j++;
             z++;
-        
+
         }
-        
+
     }
 ```
+
 ---
 
 ## Step-By-Step Process
 
-We'll be looking at an example to really clarify how merge sort works. 
-Consider the array : `[4 , 3 , 2 , 1 , 8]` 
+We'll be looking at an example to really clarify how merge sort works.
+Consider the array : `[4 , 3 , 2 , 1 , 8]`
 
 **Dividing the array into two sub arrays**
 
->Base Case: Dividing process will stop once the length of the sub arrays reach 1
+> Base Case: Dividing process will stop once the length of the sub arrays reach 1
 
-In order to divide into two sub arrays, we would need to know the middle index of the array. We will determine the middle index by `(left + right) / 2`. The left index of the array will be `0` and the right can be obtained by `array.length - 1`. Next, we'll initialize the indices (`i` and `j`) that will be used when copying elements from our (**Array To Be Divided**) to `left` and `right` sub arrays. 
+In order to divide into two sub arrays, we would need to know the middle index of the array. We will determine the middle index by `(left + right) / 2`. The left index of the array will be `0` and the right can be obtained by `array.length - 1`. Next, we'll initialize the indices (`i` and `j`) that will be used when copying elements from our (**Array To Be Divided**) to `left` and `right` sub arrays.
 
 Next, we instantiate two arrays `leftSubArr` and `rightSubArr` that will be used when copying elements. `leftSubArr`'s length will be from the start of the array to the middle index (includes the middle index). `rightSubArr`'s length will be the remaining (`array.length - leftSubArr.length`).
 
-A for-loop will be used in the copying process. 
+A for-loop will be used in the copying process.
 
 ```Java
  for(; i < arr.length; i++){
@@ -110,11 +112,12 @@ A for-loop will be used in the copying process.
             }
         }
 ```
-Once the array has been divided into two halves, each half will be passed into the recursive calls to `mergeSort(...)` (i.e. to further divide the sub arrays into two halves). Lastly, we will call the `merge(...)` (The helper method) by passing in the required arguments. `merge(...)` will deal with the sorting and merging responsibilities. 
 
-Here's the diagramatic respresentation of the above process: 
+Once the array has been divided into two halves, each half will be passed into the recursive calls to `mergeSort(...)` (i.e. to further divide the sub arrays into two halves). Lastly, we will call the `merge(...)` (The helper method) by passing in the required arguments. `merge(...)` will deal with the sorting and merging responsibilities.
 
- ![image info](./Pictures/DivideProcess.png)
+Here's the diagramatic respresentation of the above process:
+
+![image info](./Pictures/DivideProcess.png)
 
 **Sorting and Merging using merge(...)**
 
@@ -122,7 +125,7 @@ In the sorting and merging process, each half or branch of the **Original Array*
 
 ![image info](./Pictures/MergingProcessStep1.png)
 
-Next we will have `[3 , 4]` as the left sub array and `[1]` as the right sub array. `[4 , 3 , 1]` will be the parent array that will be the combination of left and righ sub arrays (sorted). 
+Next we will have `[3 , 4]` as the left sub array and `[1]` as the right sub array. `[4 , 3 , 1]` will be the parent array that will be the combination of left and righ sub arrays (sorted).
 
 ```Java
         int leftLength = leftArr.length;
@@ -131,6 +134,7 @@ Next we will have `[3 , 4]` as the left sub array and `[1]` as the right sub arr
         int j = 0;
         int z = 0;
 ```
+
 In the helper method, we initialized the variables we would be needing when iterating `leftArr` , `rightArr` and `arr` while comparing `leftArr[i]` and `rightArr[j]` to sort and merge them together.
 
 ```Java
@@ -161,7 +165,7 @@ This piece of code will iterate left and right sub arrays to check whoever is gr
             arr[z] = rightArr[j];
             j++;
             z++;
-        
+
         }
 ```
 
@@ -197,13 +201,13 @@ After incrementing `z` and `i` we will reach the end of the left sub array. Ther
 
 ---
 
-## Time Complexity 
+## Time Complexity
 
 | Cases        | Time Complexity |
-| ---          | ---             |
-| Best Case    |  O(n log n)     |
-| Average Case |  O(n log n)     | 
-| Worst Case   |  O(n log n)     |
+| ------------ | --------------- |
+| Best Case    | O(n log n)      |
+| Average Case | O(n log n)      |
+| Worst Case   | O(n log n)      |
 
 ---
 
